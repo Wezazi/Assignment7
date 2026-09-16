@@ -4,12 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles/noramlize.css">
+    <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Slackey&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    <svg>
-        <use xlink:href="images/arasaka.svg#arasaka"></use>
-    </svg>
+    <div class="container">
+        <input type="checkbox" class="throwButton">
+        <div class="svgContainer">
+            <svg width="300px" height="240px" xmlns="https://www.w3.org/2000/svg">
+
+                <rect width="300px" height="240px" fill="white" stroke-width="20px" stroke="red"></rect>
+
+                <polyline fill="none" stroke="red" stroke-width="20px" points="0,0, 150,120, 300,0"></polyline>
+
+            </svg>
+
+            <svg class="arasaka" width="125px">
+                <use xlink:href="images/arasaka.svg#arasaka"></use>
+            </svg>
+        </div>
+   </div>
+
+
 </body>
 </html>
