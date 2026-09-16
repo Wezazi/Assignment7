@@ -1,0 +1,94 @@
+body{
+    background-color:yellow;
+    height:100vh; /*for unknown, the height was 240px so i explicitelly set it to max viewport height */
+}
+
+
+.container{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:100vh; /*for unknown reason, the height of this container was also 240px even after i changed body height so i also explicitely set this to 100vh*/
+}
+
+
+.svgContainer{
+    display:flex;
+    height:240px;
+    align-items:center;
+    justify-content:center;
+    width:425px; 
+    /* 
+    when i added width:300px; to the .svgContainer instead of the default full viewport width, i noticed that part of the mail svg vanished even though the mail svg only needs 300 px width.
+    I finally figured out why that happened. It looked like the svgs only needed a 300px width container because arasaka was within the mail svg but is actually taking up 125px of empty space besides the mail svg
+    I had changed the position of the arasaka svg using relative positioning. When moving elements with relative position, their original position is still taken up by them even if it looks empty. Other elements can be placed there
+    so the two svgs were actually taking up 300px + 125px width together.
+    */
+
+
+}
+
+.arasaka{
+    position:relative;
+    right:213px;
+    bottom:10px;
+}
+
+
+@keyframes throw{
+    0% {transform: translate(0px) rotate(0deg)};
+    50% {transform: translate(250px) rotate(180deg)};
+    100% {transform: translate(500px) rotate(360deg)};
+    /*don't know why the rotation and movement isn't synced */
+}
+
+/*
+.svgContainer:hover{
+    animation:throw 2s ease-in-out forwards;
+}
+The animation stops playing when i stop hovering
+
+I can add this instead:
+.svgContainer.throw{    
+    animation: throw 2s ease-in-out forwards; 
+}
+
+and add this js to the html:
+<script>
+        const container = document.querySelector('.svgContainer');
+
+        container.addEventListener('mouseenter', () => {
+            container.classList.add('throw');
+        });
+
+</script>
+
+But no javascript allowed so I'll find another way
+
+Figured out another way:
+
+.throwButton:checked ~ .svgContainer{
+    background-color:red;
+}
+
+This changes the background color of .svgContainer when the .throwButton has been checked. The ~ selector requires the target element to be a sibling element so this wouldn't work if .throwButton and .svgContainer weren't child elements of the same parent (.container)
+
+*/
+
+.throwButton:checked ~ .svgContainer{
+    animation: throw 1s linear; /*linear makes the throw better */ 
+    animation-fill-mode: forwards; /* to make it stay in the location it ends up at */
+}
+
+.throwButton{
+    height:100vh;
+    width:100vw;
+    cursor:pointer;
+    opacity:0;
+    position:absolute; /*setting position absolute removes it from the regular layour and places it in another layer which is also why it won't affect the position of the other elements either. */
+    
+}
+
+
+
+
