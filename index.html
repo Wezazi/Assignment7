@@ -11,20 +11,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Slackey&display=swap" rel="stylesheet">
 
+    
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 </head>
 <body>
     <div class="container">
         <input type="checkbox" class="throwButton">
         <div class="svgContainer">
-            <svg width="300px" height="240px" xmlns="https://www.w3.org/2000/svg">
+            <svg class="mail" width="300px" height="240px" xmlns="https://www.w3.org/2000/svg">
+                <!--https://www.w3schools.com/graphics/svg_rect.asp-->
 
                 <rect width="300px" height="240px" fill="white" stroke-width="20px" stroke="red"></rect>
 
+                <!--https://www.w3schools.com/graphics/svg_polyline.asp-->
                 <polyline fill="none" stroke="red" stroke-width="20px" points="0,0, 150,120, 300,0"></polyline>
 
             </svg>
 
-            <svg class="arasaka" width="125px">
+            <svg class="arasaka animate__animated animate__bounce" width="125px">
                 <use xlink:href="images/arasaka.svg#arasaka"></use>
             </svg>
         </div>
